@@ -1,13 +1,14 @@
 #include QMK_KEYBOARD_H
 #include "keymap_german.h"
 
-#define BASE 0   // default layer
-#define SYMBOL 1 // symbol layer
-#define ARROW 2  // arrows, diacritics and number row
-#define NUMBER 3 // numpad and f keys
-#define GAME 4   // gaming
+#define BASE 0    // default layer
+#define SYMBOL 1  // symbol layer
+#define ARRNUM 2  // arrows and numbers
+#define ARRNUMP 3 // arrows and numbers, persistent
+#define MEDFUNC 4  // media and f keys
+#define GAME 5    // gaming
 
-// layout prioritices macOS, with Windows and gaming on Windows as secondary options
+// layout prioritizes macOS, with Windows and gaming on Windows as secondary options
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
 	[BASE] = LAYOUT(
@@ -16,33 +17,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	DE_A, DE_S, DE_D, DE_F, DE_G,         		                DE_H, DE_J, DE_K,    DE_L,   KC_RSFT,
 	DE_Y, DE_X, DE_C, DE_V, DE_B,         		                DE_N, DE_M, DE_COMM, DE_DOT, KC_RCTRL,
 	
-	                  LT(ARROW, KC_TAB), LCMD_T(KC_BACKSPACE),  LT(SYMBOL, KC_SPACE), ALGR_T(KC_ENTER)
+	                  LCMD_T(KC_TAB), LT(ARRNUM, KC_BACKSPACE),  LT(SYMBOL, KC_SPACE), ALGR_T(KC_ENTER)
 	),
 	
-	[ARROW] = LAYOUT(
+	[ARRNUM] = LAYOUT(
 	
-	KC_ESCAPE,  KC_PAGE_UP, KC_UP,   KC_PAGE_DOWN, KC_MPLY,      KC_VOLU, XXXXXXX, DE_SS,   DE_UDIA, DE_ACUT,
-	KC_LCTRL,   KC_LEFT,    KC_DOWN, KC_RIGHT,     KC_MUTE,      KC_VOLD, XXXXXXX, DE_ODIA, DE_ADIA, _______,
-	KC_1,       KC_2,       KC_3,    KC_4,         KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
+	KC_ESCAPE,  KC_PAGE_UP, KC_UP,   KC_PAGE_DOWN, DE_DLR,          DE_ACUT, KC_7, KC_8, KC_9, KC_0,
+	KC_LCTRL,   KC_LEFT,    KC_DOWN, KC_RIGHT,     DE_EURO,         DE_PERC, KC_4, KC_5, KC_6, _______,
+	TG(ARRNUMP), DE_DEG,     DE_CIRC, KC_DELETE,    KC_BACKSPACE,    DE_SECT, KC_1, KC_2, KC_3, _______,
 	
-	                                 _______,      _______,      MO(NUMBER), _______
+	                                 _______,      _______,        MO(MEDFUNC), _______
+	),
+	
+	[ARRNUMP] = LAYOUT(
+	
+	KC_ESCAPE,  KC_PAGE_UP, KC_UP,   KC_PAGE_DOWN, DE_DLR,          DE_ACUT, KC_7, KC_8, KC_9, KC_0,
+	KC_LCTRL,   KC_LEFT,    KC_DOWN, KC_RIGHT,     DE_EURO,         DE_PERC, KC_4, KC_5, KC_6, _______,
+	TG(ARRNUMP), DE_DEG,     DE_CIRC, KC_DELETE,    KC_BACKSPACE,    DE_SECT, KC_1, KC_2, KC_3, _______,
+	
+	                                 _______,      _______,        MO(MEDFUNC), _______
 	),
 	
 	
 	[SYMBOL] = LAYOUT(
+	                                                   
+	DE_AT,   DE_EXLM, DE_DQUO, DE_QUOT, DE_TILD,         DE_AMPR, DE_UDIA, DE_EQL,  DE_ODIA, DE_HASH,
+	DE_ADIA, DE_SS,   DE_LCBR, DE_RCBR, DE_BSLS,         DE_SLSH, DE_LPRN, DE_RPRN, DE_QUES, _______,
+	DE_PIPE, DE_LABK, DE_RABK, DE_LBRC, DE_RBRC,         DE_PLUS, DE_MINS, DE_UNDS, DE_ASTR, _______,
 	
-	DE_AT,   DE_EXLM, DE_DQUO, DE_QUOT, DE_PERC,         DE_AMPR, DE_PLUS, DE_EQL,  DE_QUES, DE_ASTR,
-	DE_LABK, DE_LBRC, DE_LCBR, DE_LPRN, DE_BSLS,         DE_SLSH, DE_RPRN, DE_RCBR, DE_RBRC, DE_RABK,
-	DE_PIPE, DE_DEG,  DE_CIRC, DE_SECT, DE_DLR,          DE_TILD, DE_MINS, DE_UNDS, DE_HASH, _______,
-	
-	                           MO(NUMBER), _______,      _______, _______
+	                              _______, MO(MEDFUNC),      _______, _______
 	),
 	
-	[NUMBER] = LAYOUT(
+	[MEDFUNC] = LAYOUT(
 	// maybe add layer lock to make numpad onehanded an option
-	RESET,   KC_F1, KC_F2,  KC_F3,  KC_F4,       XXXXXXX, KC_7, KC_8, KC_9, KC_0,
-	XXXXXXX, KC_F5, KC_F6,  KC_F7,  KC_F8,       XXXXXXX, KC_4, KC_5, KC_6, XXXXXXX,
-	CG_TOGG, KC_F9, KC_F10, KC_F11, KC_F12,      XXXXXXX, KC_1, KC_2, KC_3, DF(GAME),
+	RESET,   XXXXXXX, KC_MUTE, XXXXXXX, XXXXXXX,       KC_F1, KC_F2,  KC_F3,  KC_F4,  DF(GAME),
+	XXXXXXX, KC_VOLD, KC_MPLY, KC_VOLU, XXXXXXX,       KC_F5, KC_F6,  KC_F7,  KC_F8,  _______,
+	CG_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,       KC_F9, KC_F10, KC_F11, KC_F12, _______,
 	
 	                        _______, _______,    _______, _______
 	),
@@ -68,4 +78,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 	*/
 };
-
