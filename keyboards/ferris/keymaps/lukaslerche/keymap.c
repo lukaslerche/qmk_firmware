@@ -16,7 +16,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	DE_A, DE_S, DE_D, DE_F, DE_G,         		                DE_H, DE_J, DE_K,    DE_L,   KC_RSFT,
 	DE_Y, DE_X, DE_C, DE_V, DE_B,         		                DE_N, DE_M, DE_COMM, DE_DOT, KC_RCTRL,
 	
-	                  LCMD_T(KC_TAB), LT(ARRNUM, KC_BACKSPACE),  LT(SYMBOL, KC_SPACE), ALGR_T(KC_ENTER)
+	                  LCMD_T(KC_ENTER), LT(ARRNUM, KC_BACKSPACE),  LT(SYMBOL, KC_SPACE), ALGR_T(KC_TAB)
 	),
 	
 	[ARRNUM] = LAYOUT(
