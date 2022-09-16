@@ -19,3 +19,6 @@ UNICODE_ENABLE = yes        # Unicode
 AUDIO_ENABLE = no           # Audio output
 SPLIT_KEYBOARD = yes        # Use shared split_common code
 LAYOUTS = split_3x5_2
+
+# Set eager debounce to reduce latency
+DEBOUNCE_TYPE = sym_eager_pk
