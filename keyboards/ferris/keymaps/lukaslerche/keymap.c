@@ -21,8 +21,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
 	[ARRNUM] = LAYOUT(
 	
-	KC_ESCAPE,  KC_PAGE_UP,    KC_UP,          KC_PAGE_DOWN, DE_GRV,         DE_ACUT, KC_7, KC_8, KC_9, KC_0,
-	KC_LCTL,    KC_LEFT,       KC_DOWN,        KC_RIGHT,     DE_DLR,         DE_TILD, KC_4, KC_5, KC_6, _______,
+	KC_ESCAPE,  KC_PAGE_UP,    KC_UP,          KC_PAGE_DOWN, KC_HOME,        DE_PERC, KC_7, KC_8, KC_9, KC_0,
+	KC_LCTL,    KC_LEFT,       KC_DOWN,        KC_RIGHT,     KC_END,         DE_DLR, KC_4, KC_5, KC_6, _______,
 	LCMD(DE_Z), LCMD(KC_LEFT), LCMD(KC_RIGHT), KC_BACKSPACE, KC_DELETE,      DE_EURO , KC_1, KC_2, KC_3, _______,
 	
 	                                 _______,      _______,       MO(MEDFUNC), _______
@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		
 	[SYMBOL] = LAYOUT(
 	                                                   
-	DE_AT,   DE_EXLM, DE_DQUO, DE_QUOT, DE_PERC,         DE_AMPR, DE_UDIA, DE_EQL,  DE_ODIA, DE_ASTR,
+	DE_AT,   DE_EXLM, DE_DQUO, DE_QUOT, DE_GRV,         DE_AMPR, DE_UDIA, DE_EQL,  DE_ODIA, DE_ASTR,
 	DE_ADIA, DE_SS,   DE_LCBR, DE_RCBR, DE_BSLS,         DE_SLSH, DE_LPRN, DE_RPRN, DE_QUES, _______,
 	DE_PIPE, DE_LBRC, DE_LABK, DE_RABK, DE_RBRC,         DE_PLUS, DE_MINS, DE_UNDS, DE_HASH, _______,
 	
@@ -40,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[MEDFUNC] = LAYOUT(
 	// maybe add layer lock to make numpad onehanded an option
 	CG_TOGG, XXXXXXX, KC_MUTE, XXXXXXX, QK_BOOT,         KC_F1, KC_F2,  KC_F3,  KC_F4,  DF(GAME),
-	XXXXXXX, KC_VOLD, KC_MPLY, KC_VOLU, XXXXXXX,       KC_F5, KC_F6,  KC_F7,  KC_F8,  _______,
-	QK_RBT , DE_CIRC, DE_DEG,  DE_SECT, XXXXXXX,       KC_F9, KC_F10, KC_F11, KC_F12, _______,
+	XXXXXXX, KC_VOLD, KC_MPLY, KC_VOLU, DE_SECT,       KC_F5, KC_F6,  KC_F7,  KC_F8,  _______,
+	QK_RBT , DE_DEG, DE_CIRC,  DE_TILD, DE_ACUT,       KC_F9, KC_F10, KC_F11, KC_F12, _______,
 	
 	                        _______, _______,    _______, _______
 	),
